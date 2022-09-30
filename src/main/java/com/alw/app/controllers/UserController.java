@@ -37,7 +37,7 @@ public class UserController {
     @PutMapping("/edit/user")
     public ResponseEntity<User> editUser (@RequestBody User user, @RequestParam long id) throws Exception {
         user.setId(id);
-        User updatedUser = userService.editUser(user);
+        User updatedUser = userService.editUser(id);
         return new ResponseEntity(updatedUser, HttpStatus.OK);
     }
 

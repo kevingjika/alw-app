@@ -34,10 +34,10 @@ public class UserService {
 
     }
 
-    public User editUser(User user) throws NoUserFoundException {
+    public User editUser(long id) throws NoUserFoundException {
 
-        Optional<User> findIfUserExists = userRepository.findById(user.getId());
-        findIfUserExists.get().setPassword(user.getPassword());
+        Optional<User> findIfUserExists = userRepository.findById(id);
+        findIfUserExists.get().setPassword(findIfUserExists.get().getPassword());
 
         if (!findIfUserExists.isPresent()) {
             throw new NoUserFoundException("User doesn't exists.");
