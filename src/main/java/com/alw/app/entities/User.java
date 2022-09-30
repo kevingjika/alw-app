@@ -1,6 +1,10 @@
 package com.alw.app.entities;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
