@@ -11,6 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 public class UserController {
 
     @Autowired
@@ -45,6 +48,18 @@ public class UserController {
     public ResponseEntity<User> deleteUser(@RequestParam(name = "id") long id) throws Exception {
         userService.deleteUser(id);
         return new ResponseEntity("User deleted successfully.", HttpStatus.OK);
+    }
+
+    @GetMapping("/get/all/users")
+    public ResponseEntity<User> getAllUsers () {
+        List<User> allUsers = userService.findAll();
+        return new ResponseEntity(allUsers, HttpStatus.OK);
+    }
+
+    @GetMapping("/get/one/user")
+    public ResponseEntity<User> getOneUser(@RequestParam long id) {
+        Optional<User> oneUser = userService.findOneById(id);
+        return new ResponseEntity(oneUser, HttpStatus.OK);
     }
 
 
