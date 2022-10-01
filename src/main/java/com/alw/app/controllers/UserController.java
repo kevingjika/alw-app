@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
 public class UserController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class UserController {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping("/create/user")
-    public ResponseEntity<User> createUser (@RequestBody User user) throws NoUserFoundException {
+    public ResponseEntity<User> createUser (@RequestBody User user) throws Exception {
 
         log.info(user.getUsername());
         log.info(user.getFirstname());
@@ -37,14 +38,14 @@ public class UserController {
     }
 
     @PutMapping("/edit/user")
-    public ResponseEntity<User> editUser (@RequestBody User user, @RequestParam long id) throws NoUserFoundException {
+    public ResponseEntity<User> editUser (@RequestBody User user, @RequestParam long id) throws Exception {
         user.setId(id);
         User updatedUser = userService.editUser(id);
         return new ResponseEntity(updatedUser, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/user")
-    public ResponseEntity<User> deleteUser(@RequestParam(name = "id") long id) throws NoUserFoundException {
+    public ResponseEntity<User> deleteUser(@RequestParam(name = "id") long id) throws Exception {
         userService.deleteUser(id);
         return new ResponseEntity("User deleted successfully.", HttpStatus.OK);
     }
@@ -60,7 +61,6 @@ public class UserController {
         Optional<User> oneUser = userService.findOneById(id);
         return new ResponseEntity(oneUser, HttpStatus.OK);
     }
-
 
 
 }
