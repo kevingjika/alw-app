@@ -35,13 +35,17 @@ public class UserService {
 
     }
 
-    public User editUser(long id) throws NoUserFoundException {
+    public User editUser(User user) throws NoUserFoundException {
 
-        Optional<User> findIfUserExists = userRepository.findById(id);
-        findIfUserExists.get().setPassword(findIfUserExists.get().getPassword());
+        Optional<User> findIfUserExists = userRepository.findById(user.getId());
 
         if (!findIfUserExists.isPresent()) {
             throw new NoUserFoundException("User doesn't exists.");
+        }
+        else {
+
+            findIfUserExists.get().setPassword(user.getPassword());
+
         }
 
         return userRepository.save(findIfUserExists.get());

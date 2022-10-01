@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome To Annual Leave Web App</title>
+    <style type="text/css">
+    .header {
+    padding: 20px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 20px;
+    }
+    .footer{
+    padding: 30px;
+    text-align: center;
+    background: red;
+    color: white;
+    font-size: 20px;
+    }
+    .form1 {
+    background: white;
+    color: black;
+    float: left;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    }
+    a:link {
+    color: white;
+    }
+
+</style>
+</head>
+<body style="background-color:powderblue;">
+<div class="header">
+    <h1>Welcome to Annual Leave Web Application (ALWA)!</h1>
+    <p align="center">Annual Leave Web Application (ALWA) is an application, which can be used to apply for days off, vacations or compensation days.</p>
+</div>
+<br/>
+<div class="form1">
+    <div style="border-style:solid; width: 420px; height: 200px">
+        <form action="/http://localhost:63342/alw-app/annual_leave_web_application.html">
+            <br/>
+            <label>&emsp;Email : </label>
+            <input type="email" id="email" placeholder="Email" required/>
+            <br/><br/>
+            <label>&emsp;Password : </label>
+            <input type="password" id="password"  placeholder="Password" required/>
+            &ensp;<input type="checkbox" onclick="myFunction1()">Show Password
+            <script>
+                    function myFunction1() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                    x.type = "text";
+                        } else {
+                    x.type = "password";
+                    }
+                }
+                </script>
+            <br/><br/><br/>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="submit" value="Log In">Log In</button>
+            &ensp;&ensp;&ensp;<button type="reset" value="Reset">Reset</button>
+        <br/><br/>
+        <p align="center">Don't have an account? &emsp;<a href="http://localhost:63342/alw-app/register_form.html">Sign up</a></p>
+        </form>
+    </div>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div class="footer">
+    <p>
+        <h1>Thank you for choosing our page!</h1>
+        <h3 align="left">Contact : +355 69 58 00 413 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Created by : Kevin Gjika</h3>
+        <h3 align="left">Email : gjikakevin@gmail.com &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Released in : 3.10.2022</h3>
+    </p>
+</div>
+</body>
+</html>
