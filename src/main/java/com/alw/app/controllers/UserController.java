@@ -2,6 +2,7 @@ package com.alw.app.controllers;
 
 
 import com.alw.app.entities.User;
+import com.alw.app.exceptions.NoUserFoundException;
 import com.alw.app.repositories.UserRepository;
 import com.alw.app.services.UserService;
 import org.slf4j.Logger;
@@ -22,7 +23,7 @@ public class UserController {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping("/create/user")
-    public ResponseEntity<User> createUser (@RequestBody User user) throws Exception {
+    public ResponseEntity<User> createUser (@RequestBody User user) throws NoUserFoundException {
 
         log.info(user.getUsername());
         log.info(user.getFirstname());
@@ -38,14 +39,14 @@ public class UserController {
     }
 
     @PutMapping("/edit/user")
-    public ResponseEntity<User> editUser (@RequestBody User user, @RequestParam long id) throws Exception {
+    public ResponseEntity<User> editUser (@RequestBody User user, @RequestParam long id) throws NoUserFoundException {
         user.setId(id);
         User updatedUser = userService.editUser(id);
         return new ResponseEntity(updatedUser, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/user")
-    public ResponseEntity<User> deleteUser(@RequestParam(name = "id") long id) throws Exception {
+    public ResponseEntity<User> deleteUser(@RequestParam(name = "id") long id) throws NoUserFoundException {
         userService.deleteUser(id);
         return new ResponseEntity("User deleted successfully.", HttpStatus.OK);
     }
