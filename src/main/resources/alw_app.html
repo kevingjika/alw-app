@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Annual Leave Web Application</title>
+  <meta charset="UTF-8"/>
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+    footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+  </style>
+</head>
+<body style="background-color: powderblue">
+<div style="float: right">
+  <form action="/login_signup.html">
+    <button>Log Out</button>
+  </form>
+</div>
+<h1 align="center">Welcome to home page!</h1>
+<footer>
+  <p>
+    <script>
+document.write('This page is accessed for the last time on ');
+var time = new Date();
+document.write(time + '.');
+    </script>
+  </p>
+</footer>
+</body>
+</html>

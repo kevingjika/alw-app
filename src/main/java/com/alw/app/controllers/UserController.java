@@ -2,6 +2,7 @@ package com.alw.app.controllers;
 
 import com.alw.app.entities.User;
 import com.alw.app.exceptions.NoUserFoundException;
+import com.alw.app.repositories.UserRepository;
 import com.alw.app.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +19,12 @@ public class UserController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    UserRepository userRepository;
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
+
+
 
     @PostMapping("/create/user")
     public ResponseEntity<User> createUser (@RequestBody User user) throws Exception {
