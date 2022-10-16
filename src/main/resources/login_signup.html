@@ -311,11 +311,10 @@ footer a {
             <input type="checkbox" onclick="myFunction1()">&ensp;&emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Show Password
             <br/><br/><br/><br/>
             <div class="ENE">
-                <input type="checkbox" id="rememberMe" name="rememberMe" value="Remember Me" onclick="rememberMe"/>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;Remember Me
+                <input type="checkbox" id="rememberMe" name="rememberMe" value="Remember Me"/>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;Remember Me
             </div>
-
             <a href="forgot_password.html">Forgot your password?</a>
-            <button onclick="ValidateEmail2()">Log In</button>
+            <button onclick="ValidateEmail2(); rememberMe();">Log In</button>
         </form>
     </div>
     <div class="forgot_password"></div>
@@ -379,6 +378,27 @@ x.type = "text";
 } else {
 x.type = "password";
 }
+}
+
+const rmCheck = document.getElementById("rememberMe"),
+      emailInput = document.getElementById("email");
+
+if (localStorage.checkbox && localStorage.checkbox !== "") {
+  rmCheck.setAttribute("checked", "checked");
+  emailInput.value = localStorage.username;
+} else {
+  rmCheck.removeAttribute("checked");
+  emailInput.value = "";
+}
+
+function rememberMe() {
+  if (rmCheck.checked && emailInput.value !== "") {
+    localStorage.username = emailInput.value;
+    localStorage.checkbox = rmCheck.value;
+  } else {
+    localStorage.username = "";
+    localStorage.checkbox = "";
+  }
 }
 
 function checkPassword(form) {
