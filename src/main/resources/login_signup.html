@@ -21,7 +21,7 @@
         .KGJ {
             position: relative;
             vertical-align: left;
-            bottom: 4%;
+            bottom: 3.5%;
             height: 81px;
             left: -0.1%;
         }
@@ -30,8 +30,17 @@
             position: relative;
             vertical-align: left;
             bottom: 1.5%;
-            height: 45px;
+            height: 46px;
             left: -0.1%;
+        }
+
+        .ENE {
+            position: absolute;
+            vertical-align: right;
+            bottom: 35%;
+            left: -63px;
+            height: 46px;
+
         }
 
 body {
@@ -205,7 +214,7 @@ input {
 }
 
 .container.right-panel-active .overlay {
-  	transform: translateX(50%);
+   	transform: translateX(50%);
 }
 
 .overlay-panel {
@@ -301,6 +310,10 @@ footer a {
             <input type="password" id="password" placeholder="Password" minlength="8" required/>
             <input type="checkbox" onclick="myFunction1()">&ensp;&emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Show Password
             <br/><br/><br/><br/>
+            <div class="ENE">
+                <input type="checkbox" id="rememberMe" name="rememberMe" value="Remember Me" onclick="rememberMe"/>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;Remember Me
+            </div>
+
             <a href="forgot_password.html">Forgot your password?</a>
             <button onclick="ValidateEmail2()">Log In</button>
         </form>
