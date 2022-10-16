@@ -40,7 +40,6 @@
             bottom: 35%;
             left: -63px;
             height: 46px;
-
         }
 
 body {
@@ -306,7 +305,7 @@ footer a {
     <div class="form-container sign-in-container">
         <form action="/alw_app.html">
             <h1>Log In</h1>
-            <input type="email" placeholder="Email" required/>
+            <input type="email" id="email" placeholder="Email" required/>
             <input type="password" id="password" placeholder="Password" minlength="8" required/>
             <input type="checkbox" onclick="myFunction1()">&ensp;&emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Show Password
             <br/><br/><br/><br/>
@@ -353,103 +352,97 @@ footer a {
     signInButton.addEventListener('click', () => {
         container.classList.remove("right-panel-active");
     });
+
     function myFunction1() {
-var x = document.getElementById("password");
-if (x.type === "password") {
-x.type = "text";
-} else {
-x.type = "password";
-}
-}
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+        x.type = "text";
+        } else {
+        x.type = "password";
+        }
+    }
 
-function myFunction2() {
-var x = document.getElementById("pass");
-if (x.type === "password") {
-x.type = "text";
-} else {
-x.type = "password";
-}
-}
+    function myFunction2() {
+        var x = document.getElementById("pass");
+        if (x.type === "password") {
+        x.type = "text";
+        } else {
+        x.type = "password";
+        }
+    }
 
-function myFunction3() {
-var x = document.getElementById("pass1");
-if (x.type === "password") {
-x.type = "text";
-} else {
-x.type = "password";
-}
-}
+    function myFunction3() {
+        var x = document.getElementById("pass1");
+        if (x.type === "password") {
+        x.type = "text";
+        } else {
+        x.type = "password";
+        }
+    }
 
 const rmCheck = document.getElementById("rememberMe"),
       emailInput = document.getElementById("email");
 
-if (localStorage.checkbox && localStorage.checkbox !== "") {
-  rmCheck.setAttribute("checked", "checked");
-  emailInput.value = localStorage.username;
-} else {
-  rmCheck.removeAttribute("checked");
-  emailInput.value = "";
-}
+      if (localStorage.checkbox && localStorage.checkbox !== "") {
+      rmCheck.setAttribute("checked", "checked");
+      emailInput.value = localStorage.email;
+      } else {
+      rmCheck.removeAttribute("checked");
+      emailInput.value = "";
+    }
 
-function rememberMe() {
-  if (rmCheck.checked && emailInput.value !== "") {
-    localStorage.username = emailInput.value;
-    localStorage.checkbox = rmCheck.value;
-  } else {
-    localStorage.username = "";
-    localStorage.checkbox = "";
-  }
-}
+    function rememberMe() {
+        if (rmCheck.checked && emailInput.value !== "") {
+        localStorage.email = emailInput.value;
+        localStorage.checkbox = rmCheck.value;
+        } else {
+        localStorage.email = "";
+        localStorage.checkbox = "";
+        }
+    }
 
-function checkPassword(form) {
-                pass = form.pass.value;
-                pass1 = form.pass1.value;
+    function checkPassword(form) {
+        pass = form.pass.value;
+        pass1 = form.pass1.value;
 
-                if (pass == '')
-                    alert ("Please enter password!");
+        if (pass == '')
+            alert ("Please enter password!");
 
-                else if (pass1 == '')
-                    alert ("Please enter confirm password!");
+        else if (pass1 == '')
+            alert ("Please enter confirm password!");
 
-                else if (pass != pass1) {
-                    alert ("\nPasswords don't match. Please try again!")
-                    return false;
-                }
+        else if (pass != pass1) {
+            alert ("\nPasswords don't match. Please try again!")
+            return false;
+        }
 
-                else{
-                    alert("Passwords match.")
-                    return true;
-                }
+        else {
+            alert("Passwords match.")
+            return true;
+        }
+    }
 
-            }
+    function ValidateEmail1(inputText) {
+        var emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (inputText.value.match(emailformat)) {
+            alert("Valid email address!");
+            return true;
+        } else {
+            alert("Invalid email address! Please try again!");
+            return false;
+        }
+    }
 
-            function ValidateEmail1(inputText) {
-var emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(inputText.value.match(emailformat))
-{
-alert("Valid email address!");
-return true;
-}
-else
-{
-alert("Invalid email address! Please try again!");
-return false;
-}
-}
-
-function ValidateEmail2(inputText) {
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(inputText.value.match(mailformat))
-{
-alert("Valid email address!");
-return true;
-}
-else
-{
-alert("Invalid email address! Please try again!");
-return false;
-}
-}
+    function ValidateEmail2(inputText) {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (inputText.value.match(mailformat)) {
+            alert("Valid email address!");
+            return true;
+        } else {
+            alert("Invalid email address! Please try again!");
+            return false;
+        }
+    }
 </script>
 </body>
 </html>
