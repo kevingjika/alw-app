@@ -3,11 +3,83 @@
 <head>
   <title>Annual Leave Web Application</title>
   <meta charset="UTF-8"/>
+  <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+  <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+  <style>
+    fieldset{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      border: solid;  
+      background-color: white;
+    }
+
+    .form {
+      background-color: white;
+    }
+
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  
+  </style>
   </head>
-  <body style="background-color:powderblue">
-    <form>
+  <body style="background-color: aqua">
+    <form align="center">
+      <fieldset>
+      <h1>Leave Request Document</h1>
+      <hr>      
+      <h2>Name : </h2>
+      <input type="text" id="firstname" placeholder="First Name" required/>
+      &emsp;<input type="text" id="lastname" placeholder="Last name" required/>
+      <br><br>
+      <h2>Email : </h2>
+      <input type="email" id="email" placeholder="Email" required/>
+      <br><br>
+      <h2>Phone number : </h2>
+      <input type="tel" id="phonenumber" placeholder="Phone number" required/>
+      <br><br>
+      <h2>Position : </h2>
+      <input type="text" id="position" placeholder="Position" required/>
+      <br><br>
+      <h2>Supervisor name : </h2>
+      <input type="text" id="supervisorfirstname" placeholder="Supervisor first name" required/>
+      &emsp;<input type="text" id="supervisorlastname" placeholder="Supervisor last name" required/>
+      <br><br>
+      <h2>Supervisor email : </h2>
+      <input type="email" id="supervisoremail" placeholder="Supervisor email" required/>
+      <br><br>
       
-    </form>
+      <h2>Start and end date : </h2>
+      <input type="date" id="startdate" required/>
+      &emsp;<input type="date" id="enddate" required/>
+      <br><br>
+      <h2>Leave type : </h2>
+      <input type="radio" id="leavetype1" name="LeaveType"/>Vacation
+      <input type="radio" id="leavetype2" name="LeaveType"/>Sickness
+      <input type="radio" id="leavetype3" name="LeaveType"/>Quitting
+      <input type="radio" id="leavetype4" name="LeaveType"/>Other
+      <br><br>
+      <h2>Other reason of leave : </h2>
+      <input type="text" id="otherreason" placeholder="Other reason of leave"/>
+      <br><br>
+      <h2>Comments : </h2>
+      <textarea id="comments" name="Comments" rows="4"></textarea>
+      <br><br>
+      <button class="button" style="background-color: green;" type="submit" id="submit" value="Submit">Submit</button>
+      &emsp;&emsp;<button class="button" style="background-color: red;" type="reset" id="reset" value="Reset">Reset</button>
+      </fieldset>
+      </form>
   </body>
   </html>
