@@ -36,7 +36,7 @@
   </style>
   </head>
   <body style="background-color: aqua">
-    <form align="center">
+    <form action="/alw-app/src/main/resources/request_page.html" align="center">
       <fieldset>
       <h1>Leave Request Document</h1>
       <hr>      
@@ -60,7 +60,6 @@
       <h2>Supervisor email : </h2>
       <input type="email" id="supervisoremail" placeholder="Supervisor email" required/>
       <br><br>
-      
       <h2>Start and end date : </h2>
       <input type="date" id="startdate" required/>
       &emsp;<input type="date" id="enddate" required/>
@@ -79,6 +78,7 @@
       <br><br>
       <button class="button" style="background-color: green;" type="submit" id="submit" value="Submit">Submit</button>
       &emsp;&emsp;<button class="button" style="background-color: red;" type="reset" id="reset" value="Reset">Reset</button>
+      &emsp;&emsp;<button class="button" style="background-color: blue;" onclick="history.back()">Back to main page</button>
       </fieldset>
       </form>
   </body>
